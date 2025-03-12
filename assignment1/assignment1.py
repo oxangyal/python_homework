@@ -76,3 +76,11 @@ def grade(*args):
 
 print(grade(90, 87))
 print(grade(90, "B", 87))
+
+def repeat(string, count):
+    result = ""
+    for i in range(count):
+        result += string
+    return result
+
+print(repeat("word", 5))
