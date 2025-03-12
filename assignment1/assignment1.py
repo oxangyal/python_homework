@@ -37,3 +37,21 @@ print(calc(10, 0, "divide"))
 print(calc(10, 3, "modulo"))
 print(calc("one", "two", "multiply"))
 
+def data_type_conversion(value, name):
+    try:
+        if name == "int":
+            return int(value)
+        elif name == "float":
+            return float(value)
+        elif name == "str":
+            return str(value)
+        else:
+            return f"Unsupported data type: {name}"
+    except ValueError:
+        return f"You can't convert {value} into a {name}."
+
+print(data_type_conversion("nonsense", "int"))
+print(data_type_conversion(1, "int"))
+print(data_type_conversion("nonsense", "str"))
+print(data_type_conversion(10.5, "int"))
+print(data_type_conversion(10.5, "float"))
