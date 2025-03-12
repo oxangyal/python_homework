@@ -55,3 +55,24 @@ print(data_type_conversion(1, "int"))
 print(data_type_conversion("nonsense", "str"))
 print(data_type_conversion(10.5, "int"))
 print(data_type_conversion(10.5, "float"))
+
+def grade(*args):
+    try:
+        if not args:
+            return "Invalid data was provided."
+        average = sum(args) / len(args)
+        if average >= 90:
+           return "A"
+        elif  average >= 80:
+           return "B"
+        elif  average >= 70:
+           return "C"
+        elif  average >= 60:
+           return "D"
+        else:
+           return "F"
+    except (TypeError, ValueError):
+        return "Invalid data was provided."
+
+print(grade(90, 87))
+print(grade(90, "B", 87))
