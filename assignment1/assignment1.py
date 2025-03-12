@@ -6,3 +6,34 @@ def greet(name):
     return f'Hello, {name}!'
 greet("Oxana")
 
+def calc(a, b, operation="multiply"):
+    try:
+        match operation:
+            case "add":
+                return a + b
+            case "subtract":
+                return a - b
+            case "multiply":
+                return a * b
+            case "divide":
+                return a / b
+            case "modulo":
+                return a % b
+            case "int_divide":
+                return a // b
+            case "power":
+                return a ** b
+    except ZeroDivisionError:
+        return "You can't divide by 0!"
+    except TypeError:
+        return "You can't multiply those values!"
+
+print(calc(1, 5, "add"))
+print(calc(10, 5, "subtract"))
+print(calc(1, 5, "add"))
+print(calc(10, 2, "power"))
+print(calc(10, 2, "int_divide"))
+print(calc(10, 0, "divide"))
+print(calc(10, 3, "modulo"))
+print(calc("one", "two", "multiply"))
+
