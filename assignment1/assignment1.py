@@ -104,3 +104,19 @@ def student_scores(position, **kwargs):
         return sum / len(kwargs)
 
 print(student_scores("best", Oxana=1, David=2, Anna=5))
+print(student_scores("mean", Oxana=1, David=2, Anna=5))
+
+def titleize(string):
+    words = string.split()
+    little_words = {"a", "on", "an", "the", "and", "of", "is", "in"}
+    words[0] = words[0].capitalize()
+    words[-1] = words[-1].capitalize()
+
+    for i in range(1, len(words) - 1):
+        if words[i].lower() not in little_words:
+            words[i] = words[i].capitalize()
+        else:
+            words[i] = words[i].lower()
+
+    return " ".join(words)
+print(titleize("petrovy in flu"))
