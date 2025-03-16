@@ -84,3 +84,23 @@ def repeat(string, count):
     return result
 
 print(repeat("word", 5))
+
+def student_scores(position, **kwargs):
+
+    if position == "best":
+        max = 0
+        max_name = ""
+        for key, value in kwargs.items():
+            if value > max:
+               max = value
+               max_name = key
+        return max_name
+    elif position == "mean":
+        sum = 0
+
+        for key, value in kwargs.items():
+            sum += value
+
+        return sum / len(kwargs)
+
+print(student_scores("best", Oxana=1, David=2, Anna=5))
