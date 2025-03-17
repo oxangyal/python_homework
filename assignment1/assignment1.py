@@ -120,3 +120,14 @@ def titleize(string):
 
     return " ".join(words)
 print(titleize("petrovy in flu"))
+
+def hangman(secret, guess):
+    new_list = []
+    for i in secret:
+        if i in guess:
+            new_list.append(i)
+        else:
+            new_list.append("_")
+    return "".join(new_list)
+
+print(hangman("alphabet", "ab"))
