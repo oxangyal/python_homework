@@ -131,3 +131,34 @@ def hangman(secret, guess):
     return "".join(new_list)
 
 print(hangman("alphabet", "ab"))
+def pig_latin(string):
+    words = string.split()
+    result = ""
+    vowels = "aeiou"
+
+    for word in words:
+        if word[0] in vowels:
+            result += word + "ay"
+        elif word[:2] == "qu":
+            result += word[2:] + "quay"
+        else:
+            i = 0
+            while i < len(word) and word[i] not in vowels:
+                if word[i:i+2] == "qu":
+                    i += 2
+                    break
+                i += 1
+            result += word[i:] + word[:i] + "ay"
+
+        result += " "
+    return result[:-1]
+
+print(pig_latin("apple"))
+print(pig_latin("banana"))
+print(pig_latin("cherry"))
+print(pig_latin("square"))
+print(pig_latin("long course season"))
+
+
+
+
