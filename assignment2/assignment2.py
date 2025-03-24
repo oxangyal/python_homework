@@ -75,3 +75,56 @@ def set_that_secret(secret):
     custom_module.set_secret(secret)
 set_that_secret("hello")
 print('Task 11:\n', custom_module.secret)
+
+def read_csv_file(file_path):
+    result = {}
+    rows = []
+    try:
+        with open(file_path, 'r') as csvfile:
+            lines = csv.reader(csvfile)
+            first_line = True
+            for line in lines:
+                if first_line:
+                    result['fields'] = line
+                    first_line = False
+                else:
+                    rows.append(tuple(line))
+            result['rows'] = rows
+        return result
+    except Exception as e:
+        print(f"Error reading {file_path}: {e}")
+        return {'fields': [], 'rows': []}
+    
+def read_minutes():
+    minutes1 = read_csv_file('../csv/minutes1.csv')
+    minutes2 = read_csv_file('../csv/minutes2.csv')
+    return minutes1, minutes2
+
+minutes1, minutes2 = read_minutes()
+print("Task 12:\n Minutes_1:", minutes1)
+print("=========================")
+print("Task 12:\n Minutes_2:", minutes2)
+
+def create_minutes_set():
+    return set(minutes1['rows']).union(set(minutes2['rows']))
+minutes_set = create_minutes_set()
+print("Task 13:\n", minutes_set)
+
+from datetime import datetime
+def create_minutes_list():
+    minutes_list = list(minutes_set)
+    converted_list = list(map(lambda x: (x[0], datetime.strptime(x[1], "%B %d, %Y")), minutes_list))
+    return converted_list
+minutes_list = create_minutes_list()
+print('Task14:\n', minutes_list)
+
+def write_sorted_list():
+    minutes_list.sort(key=lambda x: x[1])
+    converted_list = list(map(lambda x: (x[0], x[1].strftime("%B %d, %Y")), minutes_list))
+    with open('./minutes.csv', 'w') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(minutes1['fields'])
+            for row in converted_list:
+                writer.writerow(row)
+    return converted_list
+print('Task15:\n', write_sorted_list())
