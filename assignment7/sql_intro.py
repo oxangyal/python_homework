@@ -108,6 +108,43 @@ with sqlite3.connect("../db/magazines.db") as conn:
     for subscriber_id, magazine_id, expiration_date in subscriptions:
         add_subscription(cursor, subscriber_id, magazine_id, expiration_date)
 
+    # Query 1: Retrieve all information from Subscribers
+    print("\nQuery 1: All Subscribers")
+    cursor.execute("SELECT * FROM Subscribers")
+    subscribers_rows = cursor.fetchall()
+    if subscribers_rows:
+        for row in subscribers_rows:
+            print(row)
+    else:
+            print("No subscribers found")
+
+    # Query 2: Retrieve all magazines sorted by name
+    print("\nQuery 2: All Magazines sorted by name")
+    cursor.execute("SELECT * FROM Magazines ORDER BY name")
+    magazines_rows = cursor.fetchall()
+    if magazines_rows:
+        print("Magazines found:")
+        for row in magazines_rows:
+            print(row)
+    else:
+            print("No magazines found")
+
+    # Query 3: Find magazines for publisher 'Hearst Communications'
+    print("\nQuery 3: Magazines for publisher 'Hearst Communications'")
+    cursor.execute("""
+        SELECT m.magazine_id, m.name, m.publisher_id, p.name AS publisher_name
+        FROM Magazines m
+        JOIN Publishers p ON m.publisher_id = p.publisher_id
+        WHERE p.name = 'Hearst Communications'
+    """)
+    publisher_magazines_rows = cursor.fetchall()
+    if publisher_magazines_rows:
+        print("Magazines found for Hearst Communications:")
+        for row in publisher_magazines_rows:
+            print(row)
+    else:
+            print("No magazines found for Hearst Communications")
+
     # Commit changes
     conn.commit()
     print("Data populated and committed successfully")
