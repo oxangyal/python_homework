@@ -1,0 +1,7 @@
+It wasn't obvious where the list of top 10 vulnerabilities was located because the vulnerabilities are not labeled with unique ids or classes,
+and the page contains multiple ul elements, making it harder to locate the correct one.
+I inspected the elements and determened that the correct list was inside the second <ul> element within the section that has id="sec-main".
+I constructed an XPath for each list item (li[1] through li[10]) inside this <ul>.
+Another challenge was extracting only the vulnerability title without any extra surrounding text. Inside each <a> tag, the title is wrapped in a
+<strong> tag. To make sure I only captured the title, I used
+title = element.find_element(By.TAG_NAME, "strong").text.
