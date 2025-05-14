@@ -1,0 +1,32 @@
+
+Which sections of the website are restricted for crawling?
+----------------------------------------------------------
+Everything what has Dissalow, and there are almost all of them, some examples:
+Disallow: /w/
+Disallow: /api/
+Disallow: /trap/
+Disallow: /wiki/Special:
+Disallow: /wiki/Spezial:
+Disallow: /wiki/Spesial:
+Disallow: /wiki/Special%3A
+Disallow: /wiki/Spezial%3A
+Disallow: /wiki/Spesial%3A
+
+
+Are there specific rules for certain user agents?
+-------------------------------------------------
+Yes, for example User-agent: MJ12bot
+
+
+Reflect on why websites use robots.txt and write 2-3 sentences explaining its purpose and how it promotes ethical scraping.
+---------------------------------------------------------------------------------------------------------------------------
+A robots.txt file can specify different rules for different web crawlers-  user agents. For example:
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+
+It promotes ethical scraping by helping developers respect the site's resources and privacy boundaries
+By following these rules, scrapers avoid overloading servers and collecting sensitive or private data.
