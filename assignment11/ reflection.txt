@@ -1,0 +1,3 @@
+Static charts are like pictures—good for reports, but you can't click or explore. Interactive charts let you zoom, filter, and see more details.
+Dashboards show live data and let you explore it without coding. They help people understand what's happening quickly.
+Plotly and Dash make charts that are easy to use and look nice. They help people to share and explore data better.
