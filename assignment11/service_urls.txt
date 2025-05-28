@@ -1,1 +1,5 @@
 https://oxana-assignment11.onrender.com
+https://github.com/oxangyal/python-assignment11
+
+https://oxana-data-visualization.streamlit.app/
+https://github.com/oxangyal/streamlit-assignment
