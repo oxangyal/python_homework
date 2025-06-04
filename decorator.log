@@ -1,0 +1,24 @@
+function: hello_world
+positional parameters: none
+keyword parameters: none
+return: None
+function: variable_positional_args
+positional parameters: (1, 2, 3)
+keyword parameters: none
+return: True
+function: variable_keyword_args
+positional parameters: none
+keyword parameters: {'a': 1, 'b': 2, 'c': 3}
+return: <function logger_decorator at 0x706e8cb1cea0>
+function: hello_world
+positional parameters: none
+keyword parameters: none
+return: None
+function: variable_positional_args
+positional parameters: (1, 2, 3, 'hello')
+keyword parameters: none
+return: True
+function: variable_keyword_args
+positional parameters: none
+keyword parameters: {'a': 1, 'b': 2, 'c': 'hello'}
+return: <function logger_decorator at 0x7212f801cea0>
